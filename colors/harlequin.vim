@@ -99,7 +99,8 @@ call s:HI('Cursor',          s:cursor)
 call s:HI('vCursor',         s:cursor)
 call s:HI('iCursor',         s:cursor)
 
-call s:HI('StatusLine',      {'guifg': '#455354', 'guibg': 'fg'})
+" StatusLine is the status line of the currently active split, StatusLineNC of the others.
+call s:HI('StatusLine',      {'guifg': s:white, 'guibg': s:black, 'gui': 'bold'})
 call s:HI('StatusLineNC',    {'guifg': '#808080', 'guibg': '#080808', 'gui': 'bold'})
 call s:HI('VertSplit',       {'guifg': '#808080', 'guibg': '#080808', 'gui': 'bold'})
 
