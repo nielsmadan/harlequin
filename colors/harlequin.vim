@@ -28,7 +28,7 @@ let s:gold = '#FFB829'
 
 let s:lilac = '#AE81FF'
 
-let s:frost = '#7BC7E8' 
+let s:frost = '#2C89C7' 
 
 let s:sunny = '#FFFC7F'
 
