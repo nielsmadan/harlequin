@@ -155,3 +155,7 @@ call s:HI('Tag',             {'gui': 'bold'})
 
 " Look into: WildMenu, CursorLine, CursorColumn, NonText, Question, SignColumn, MoreMsg
 "            SignColumn, SpecialChar, Special, SpecialKey.
+
+"*** PYTHON ***
+call s:HI('pythonException',     {'guifg': s:lime, 'gui': 'bold'})
+call s:HI('pythonExceptions',    {'guifg': s:lime})
