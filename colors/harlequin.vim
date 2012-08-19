@@ -3,6 +3,8 @@
 " Author: Niels Madan
 " URL: github.com/nielsmadan/harlequin
 
+hi clear
+
 set background=dark
 
 if exists("syntax_on")
@@ -47,6 +49,16 @@ function! s:HI(group_name, colors_dict)
     let guisp = get(a:colors_dict, 'guisp', 'fg')
 
     exe 'hi ' . a:group_name . ' guifg=' . guifg . ' guibg=' . guibg . ' gui=' . gui . ' guisp=' . guisp
+endfunction
+
+function! s:HIx(group_name, colors_dict)
+    let hi_str = 'hi ' . a:group_name . ' '
+
+    for [key, val] in items(a:colors_dict)
+        let hi_str = hi_str . key . '=' . val . ' '
+    endfor
+
+    exe hi_str
 endfunction
 
 call s:HI('Normal',          {'guifg': s:text, 'guibg': s:text_bg})
@@ -114,8 +126,8 @@ if has("spell")
     call s:HI('SpellRare',   {'guisp': '#FFFFFF', 'gui': 'undercurl'})
 endif
 
-call s:HI('VisualNOS',       {'guifg': s:black, 'guibg': s:orange})
-call s:HI('Visual',          {'guifg': s:black, 'guibg': s:orange})
+call s:HIx('VisualNOS',      {'guibg': s:greys[3]})
+call s:HIx('Visual',         {'guibg': s:greys[3]})
 call s:HI('Search',          {'guifg': s:black, 'guibg': s:orange})
 call s:HI('IncSearch',       {'guifg': s:black, 'guibg': s:orange})
 
