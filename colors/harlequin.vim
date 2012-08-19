@@ -38,8 +38,6 @@ let s:midnight = {'guifg': '#465457', 'guibg': '#000000'}
 
 let s:cursor = {'guifg': s:greys[4], 'guibg': s:white}
 
-let s:bee = '#FD971F'
-
 " group_name, guifg, guibg, gui, guisp, '' means use default
 " defaults: guifg - fg, guibg - NONE, gui - none, guisp - fg
 function! s:HI(group_name, colors_dict)
@@ -104,7 +102,7 @@ call s:HI('Float',           {'guifg': s:lilac, 'gui': 'bold'})
 call s:HI('FoldColumn',      s:midnight) 
 call s:HI('Folded',          s:midnight)
 
-call s:HI('MatchParen',      {'guifg': s:black, 'guibg': s:bee, 'gui': 'bold'})
+call s:HI('MatchParen',      {'guifg': s:black, 'guibg': s:gold, 'gui': 'bold'})
 
 call s:HI('LineNr',          {'guifg': s:greys[2]})
 
