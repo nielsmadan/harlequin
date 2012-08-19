@@ -30,7 +30,7 @@ let s:lilac = '#AE81FF'
 
 let s:frost = '#7BC7E8' 
 
-let s:straw = '#F4CF86'
+let s:sunny = '#FFFC7F'
 
 let s:mordant = '#AE0C00'
 
@@ -91,7 +91,7 @@ call s:HI('Comment',         {'guifg': s:frost})
 call s:HI('SpecialComment',  {'guifg': s:frost, 'gui': 'bold'})
 call s:HI('Todo',            {'guifg': s:frost, 'gui': 'bold'})
 
-call s:HI('String',          {'guifg': s:straw}) 
+call s:HI('String',          {'guifg': s:sunny}) 
 
 call s:HI('Boolean',         {'guifg': s:lilac, 'gui': 'bold'})
 call s:HI('Character',       {'guifg': s:lilac, 'gui': 'bold'})
@@ -115,7 +115,7 @@ call s:HI('StatusLine',      {'guifg': s:white, 'guibg': s:black, 'gui': 'bold'}
 call s:HI('StatusLineNC',    {'guifg': s:greys[1], 'guibg': s:greys[4], 'gui': 'bold'})
 call s:HI('VertSplit',       {'guifg': s:greys[1], 'guibg': s:greys[4], 'gui': 'bold'})
 
-call s:HI('ModeMsg',         {'guifg': s:straw, 'gui': 'bold'})
+call s:HI('ModeMsg',         {'guifg': s:sunny, 'gui': 'bold'})
 
 if has("spell")
     call s:HI('SpellBad',    {'guisp': '#FF0000', 'gui': 'undercurl'})
