@@ -20,7 +20,7 @@ let s:white = '#FFFFFF'
 let s:black = '#000000'
 let s:greys = ['#BEBEBE', '#808080', '#696969', '#343434', '#080808']
 
-let s:cerise = '#FF2C4B'
+let s:cerise = '#FF0033'
 
 let s:lime = '#AEEE00'
 
