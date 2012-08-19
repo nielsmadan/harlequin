@@ -14,6 +14,10 @@ let colors_name = "harlequin"
 let s:text = '#F8F8F2'
 let s:text_bg = '#1C1B1A'
 
+let s:white = '#FFFFFF'
+let s:black = '#000000'
+let s:greys = ['#BEBEBE', '#808080', '#696969', '#343434', '#080808']
+
 let s:cerise = '#FF2C4B'
 
 let s:lime = '#AEEE00'
@@ -26,14 +30,11 @@ let s:frost = '#7BC7E8'
 
 let s:straw = '#F4CF86'
 
-let s:white = '#FFFFFF'
-let s:black = '#000000'
-
 let s:mordant = '#AE0C00'
 
 let s:midnight = {'guifg': '#465457', 'guibg': '#000000'}
 
-let s:cursor = {'guifg': '#333333', 'guibg': '#EEEEEE'}
+let s:cursor = {'guifg': s:greys[4], 'guibg': s:white}
 
 let s:bee = '#FD971F'
 
@@ -48,7 +49,7 @@ function! s:HI(group_name, colors_dict)
     exe 'hi ' . a:group_name . ' guifg=' . guifg . ' guibg=' . guibg . ' gui=' . gui . ' guisp=' . guisp
 endfunction
 
-call s:HI('Normal', {'guifg': s:text, 'guibg': s:text_bg})
+call s:HI('Normal',          {'guifg': s:text, 'guibg': s:text_bg})
 
 call s:HI('Statement',       {'guifg': s:cerise, 'gui': 'bold'})
 call s:HI('Keyword',         {'guifg': s:cerise, 'gui': 'bold'})
@@ -93,7 +94,7 @@ call s:HI('Folded',          s:midnight)
 
 call s:HI('MatchParen',      {'guifg': s:black, 'guibg': s:bee, 'gui': 'bold'})
 
-call s:HI('LineNr',          {'guifg': '#666462'})
+call s:HI('LineNr',          {'guifg': s:greys[2]})
 
 call s:HI('Cursor',          s:cursor)
 call s:HI('vCursor',         s:cursor)
@@ -101,8 +102,8 @@ call s:HI('iCursor',         s:cursor)
 
 " StatusLine is the status line of the currently active split, StatusLineNC of the others.
 call s:HI('StatusLine',      {'guifg': s:white, 'guibg': s:black, 'gui': 'bold'})
-call s:HI('StatusLineNC',    {'guifg': '#808080', 'guibg': '#080808', 'gui': 'bold'})
-call s:HI('VertSplit',       {'guifg': '#808080', 'guibg': '#080808', 'gui': 'bold'})
+call s:HI('StatusLineNC',    {'guifg': s:greys[1], 'guibg': s:greys[4], 'gui': 'bold'})
+call s:HI('VertSplit',       {'guifg': s:greys[1], 'guibg': s:greys[4], 'gui': 'bold'})
 
 call s:HI('ModeMsg',         {'guifg': s:straw, 'gui': 'bold'})
 
@@ -120,7 +121,7 @@ call s:HI('IncSearch',       {'guifg': s:black, 'guibg': s:orange})
 
 call s:HI('Pmenu',          {'guifg': s:black, 'guibg': s:orange})
 call s:HI('PmenuSel',       {'guifg': s:orange, 'guibg': s:black, 'gui': 'bold'})
-call s:HI('Pmenu',          {'guibg': '#080808'})
+call s:HI('Pmenu',          {'guibg': s:greys[4]})
 call s:HI('Pmenu',          {'guifg': '#66D9EF'})
 
 call s:HI('DiffDelete',      {'guifg': s:black, 'guibg': s:black})
