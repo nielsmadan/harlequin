@@ -24,7 +24,7 @@ let s:cerise = '#FF2C4B'
 
 let s:lime = '#AEEE00'
 
-let s:orange = '#FFA724'
+let s:gold = '#FFB829'
 
 let s:lilac = '#AE81FF'
 
@@ -86,8 +86,8 @@ call s:HI('Ignore',          {'guifg': s:lime})
 call s:HI('PreCondit',       {'guifg': s:lime, 'gui': 'bold'})
 call s:HI('Debug',           {'guifg': s:lime, 'gui': 'bold'})
 
-call s:HI('Function',        {'guifg': s:orange})
-call s:HI('Identifier',      {'guifg': s:orange})
+call s:HI('Function',        {'guifg': s:gold})
+call s:HI('Identifier',      {'guifg': s:gold})
 
 call s:HI('Comment',         {'guifg': s:frost})
 call s:HI('SpecialComment',  {'guifg': s:frost, 'gui': 'bold'})
@@ -128,11 +128,11 @@ endif
 
 call s:HIx('VisualNOS',      {'guibg': s:greys[3]})
 call s:HIx('Visual',         {'guibg': s:greys[3]})
-call s:HI('Search',          {'guifg': s:black, 'guibg': s:orange})
-call s:HI('IncSearch',       {'guifg': s:black, 'guibg': s:orange})
+call s:HI('Search',          {'guifg': s:black, 'guibg': s:gold})
+call s:HI('IncSearch',       {'guifg': s:black, 'guibg': s:gold})
 
-call s:HI('Pmenu',          {'guifg': s:black, 'guibg': s:orange})
-call s:HI('PmenuSel',       {'guifg': s:orange, 'guibg': s:black, 'gui': 'bold'})
+call s:HI('Pmenu',          {'guifg': s:black, 'guibg': s:gold})
+call s:HI('PmenuSel',       {'guifg': s:gold, 'guibg': s:black, 'gui': 'bold'})
 call s:HI('Pmenu',          {'guibg': s:greys[4]})
 call s:HI('Pmenu',          {'guifg': '#66D9EF'})
 
