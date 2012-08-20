@@ -105,6 +105,7 @@ call s:HI('Folded',          s:midnight)
 call s:HI('MatchParen',      {'guifg': s:black, 'guibg': s:gold, 'gui': 'bold'})
 
 call s:HI('LineNr',          {'guifg': s:greys[2]})
+call s:HI('NonText',         {'guifg': s:greys[2]})
 call s:HIx('CursorColumn',   {'guibg': s:greys[4]})
 call s:HIx('CursorLine',     {'guibg': s:greys[4]})
 call s:HI('SignColumn',      {'guibg': s:greys[4]})
@@ -118,7 +119,6 @@ call s:HI('Cursor',          s:cursor)
 call s:HI('vCursor',         s:cursor)
 call s:HI('iCursor',         s:cursor)
 
-" StatusLine is the status line of the currently active split, StatusLineNC of the others.
 call s:HI('StatusLine',      {'guifg': s:white, 'guibg': s:black, 'gui': 'bold'})
 call s:HI('StatusLineNC',    {'guifg': s:greys[1], 'guibg': s:greys[4], 'gui': 'bold'})
 call s:HI('VertSplit',       {'guifg': s:greys[1], 'guibg': s:greys[4], 'gui': 'bold'})
@@ -155,7 +155,7 @@ call s:HI('Title',           {'gui': 'underline'})
 
 call s:HI('Tag',             {'gui': 'bold'})
 
-" Look into: WildMenu, NonText, Question, MoreMsg, SpecialChar, Special, SpecialKey.
+" Look into: WildMenu, Question, MoreMsg, SpecialChar, Special, SpecialKey.
 
 "*** PYTHON ***
 call s:HI('pythonDecorator',     {'guifg': s:cerise})
