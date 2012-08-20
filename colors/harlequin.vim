@@ -105,9 +105,13 @@ call s:HI('Folded',          s:midnight)
 call s:HI('MatchParen',      {'guifg': s:black, 'guibg': s:gold, 'gui': 'bold'})
 
 call s:HI('LineNr',          {'guifg': s:greys[2]})
-call s:HI('SignColumn',      {'guifg': s:greys[2]})
-call s:HI('CursorColumn',    {'guifg': s:greys[2]})
-call s:HI('CursorLine',      {'guifg': s:greys[2]})
+call s:HI('SignColumn',      {'guibg': s:greys[4]})
+call s:HI('CursorColumn',    {'guibg': s:greys[4]})
+call s:HI('CursorLine',      {'guibg': s:greys[4]})
+
+call s:HI('Error',           {'guifg': s:mordant, 'guibg': s:greys[4], 'gui': 'bold'})
+call s:HI('ErrorMsg',        {'guifg': s:mordant, 'gui': 'bold'})
+call s:HI('WarningMsg',      {'guifg': s:mordant})
 
 call s:HI('Cursor',          s:cursor)
 call s:HI('vCursor',         s:cursor)
@@ -141,10 +145,6 @@ call s:HIx('DiffDelete',      {'guifg': s:greys[3], 'guibg': s:greys[3]})
 call s:HIx('DiffText',        {'guibg': '#13354A', 'gui': 'bold'})
 call s:HIx('DiffChange',      {'guibg': s:greys[3]})
 call s:HIx('DiffAdd',         {'guibg': s:greys[3]})
-
-call s:HI('Error',           {'guifg': s:mordant, 'guibg': s:black})
-call s:HI('ErrorMsg',        {'guifg': s:mordant, 'guibg': s:black, 'gui': 'bold'})
-call s:HI('WarningMsg',      {'guifg': s:mordant, 'guibg': s:black})
 
 call s:HI('Underlined',      {'gui': 'underline'})
 
