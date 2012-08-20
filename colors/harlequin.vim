@@ -118,10 +118,10 @@ call s:HI('VertSplit',       {'guifg': s:greys[1], 'guibg': s:greys[4], 'gui': '
 call s:HI('ModeMsg',         {'guifg': s:sunny, 'gui': 'bold'})
 
 if has("spell")
-    call s:HI('SpellBad',    {'guisp': '#FF0000', 'gui': 'undercurl'})
-    call s:HI('SpellCap',    {'guisp': '#7070F0', 'gui': 'undercurl'})
-    call s:HI('SpellLocal',  {'guisp': '#70F0F0', 'gui': 'undercurl'})
-    call s:HI('SpellRare',   {'guisp': '#FFFFFF', 'gui': 'undercurl'})
+    call s:HIx('SpellBad',    {'guisp': '#FF0000', 'gui': 'undercurl'})
+    call s:HIx('SpellCap',    {'guisp': '#7070F0', 'gui': 'undercurl'})
+    call s:HIx('SpellLocal',  {'guisp': '#70F0F0', 'gui': 'undercurl'})
+    call s:HIx('SpellRare',   {'guisp': '#FFFFFF', 'gui': 'undercurl'})
 endif
 
 call s:HIx('VisualNOS',      {'guibg': s:greys[3]})
