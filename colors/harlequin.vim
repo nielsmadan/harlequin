@@ -149,7 +149,7 @@ call s:HIx('DiffAdd',         {'guibg': s:greys[3]})
 
 call s:HI('Underlined',      {'gui': 'underline'})
 
-call s:HI('Directory',       {'guifg': s:lilac})
+call s:HI('Directory',       {'guifg': s:lime})
 
 call s:HI('Title',           {'gui': 'underline'})
 
