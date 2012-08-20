@@ -105,6 +105,9 @@ call s:HI('Folded',          s:midnight)
 call s:HI('MatchParen',      {'guifg': s:black, 'guibg': s:gold, 'gui': 'bold'})
 
 call s:HI('LineNr',          {'guifg': s:greys[2]})
+call s:HI('SignColumn',      {'guifg': s:greys[2]})
+call s:HI('CursorColumn',    {'guifg': s:greys[2]})
+call s:HI('CursorLine',      {'guifg': s:greys[2]})
 
 call s:HI('Cursor',          s:cursor)
 call s:HI('vCursor',         s:cursor)
@@ -151,7 +154,7 @@ call s:HI('Title',           {'gui': 'underline'})
 
 call s:HI('Tag',             {'gui': 'bold'})
 
-" Look into: WildMenu, CursorLine, CursorColumn, NonText, Question, SignColumn, MoreMsg
+" Look into: WildMenu, NonText, Question, SignColumn, MoreMsg
 "            SignColumn, SpecialChar, Special, SpecialKey.
 
 "*** PYTHON ***
