@@ -151,12 +151,13 @@ call s:HI('Underlined',      {'gui': 'underline'})
 
 call s:HI('Directory',       {'guifg': s:lime})
 call s:HI('SpecialKey',      {'guifg': s:lime})
+call s:HI('Special',         {'guifg': s:lime})
 
 call s:HI('Title',           {'gui': 'underline'})
 
 call s:HI('Tag',             {'gui': 'bold'})
 
-" Look into: WildMenu, Question, MoreMsg, SpecialChar, Special
+" Look into: WildMenu, Question, MoreMsg, SpecialChar
 
 "*** PYTHON ***
 call s:HI('pythonDecorator',     {'guifg': s:cerise})
