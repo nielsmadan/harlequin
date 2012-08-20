@@ -105,9 +105,9 @@ call s:HI('Folded',          s:midnight)
 call s:HI('MatchParen',      {'guifg': s:black, 'guibg': s:gold, 'gui': 'bold'})
 
 call s:HI('LineNr',          {'guifg': s:greys[2]})
+call s:HIx('CursorColumn',   {'guibg': s:greys[4]})
+call s:HIx('CursorLine',     {'guibg': s:greys[4]})
 call s:HI('SignColumn',      {'guibg': s:greys[4]})
-call s:HI('CursorColumn',    {'guibg': s:greys[4]})
-call s:HI('CursorLine',      {'guibg': s:greys[4]})
 call s:HI('ColorColumn',     {'guibg': s:greys[4]})
 
 call s:HI('Error',           {'guifg': s:mordant, 'guibg': s:greys[4], 'gui': 'bold'})
