@@ -154,9 +154,9 @@ call s:HI('Title',           {'gui': 'underline'})
 
 call s:HI('Tag',             {'gui': 'bold'})
 
-" Look into: WildMenu, NonText, Question, SignColumn, MoreMsg
-"            SignColumn, SpecialChar, Special, SpecialKey.
+" Look into: WildMenu, NonText, Question, MoreMsg, SpecialChar, Special, SpecialKey.
 
 "*** PYTHON ***
+call s:HI('pythonDecorator',     {'guifg': s:cerise})
 call s:HI('pythonException',     {'guifg': s:lime, 'gui': 'bold'})
 call s:HI('pythonExceptions',    {'guifg': s:lime})
