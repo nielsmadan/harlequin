@@ -34,6 +34,9 @@ let s:sunny = '#FFFC7F'
 
 let s:mordant = '#AE0C00'
 
+let s:auburn = '#7C0A02'
+let s:moss = '#004225'
+
 let s:midnight = {'guifg': '#465457', 'guibg': '#000000'}
 
 let s:cursor = {'guifg': s:greys[4], 'guibg': s:white}
@@ -142,10 +145,10 @@ call s:HI('PmenuSel',       {'guifg': s:gold, 'guibg': s:black, 'gui': 'bold'})
 call s:HI('Pmenu',          {'guibg': s:greys[4]})
 call s:HI('Pmenu',          {'guifg': '#66D9EF'})
 
-call s:HIx('DiffDelete',      {'guifg': s:greys[3], 'guibg': s:greys[3]})
-call s:HIx('DiffText',        {'guibg': '#13354A', 'gui': 'bold'})
-call s:HIx('DiffChange',      {'guibg': s:greys[3]})
-call s:HIx('DiffAdd',         {'guibg': s:greys[3]})
+call s:HIx('DiffDelete',      {'guifg': s:auburn, 'guibg': s:auburn})
+call s:HIx('DiffText',        {'guibg': s:greys[3], 'gui': 'bold'})
+call s:HIx('DiffChange',      {'guibg': s:greys[2]})
+call s:HIx('DiffAdd',         {'guibg': s:moss})
 
 call s:HI('Underlined',      {'gui': 'underline'})
 
