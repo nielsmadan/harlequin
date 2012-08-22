@@ -1,4 +1,4 @@
-" Color scheme based on Monokai by Tomas Restrepo and badwolf by Steve Losh.
+" Color scheme based on Molokai by Tomas Restrepo and badwolf by Steve Losh.
 "
 " Author: Niels Madan
 " URL: github.com/nielsmadan/harlequin
@@ -94,6 +94,8 @@ call s:HI('SpecialComment',  {'guifg': s:frost, 'gui': 'bold'})
 call s:HI('Todo',            {'guifg': s:frost, 'gui': 'bold'})
 
 call s:HI('String',          {'guifg': s:sunny}) 
+call s:HI('SpecialKey',      {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('Special',         {'guifg': s:lilac, 'gui': 'bold'})
 
 call s:HI('Boolean',         {'guifg': s:lilac, 'gui': 'bold'})
 call s:HI('Character',       {'guifg': s:lilac, 'gui': 'bold'})
@@ -152,14 +154,13 @@ call s:HIx('DiffAdd',         {'guibg': s:moss})
 call s:HI('Underlined',      {'gui': 'underline'})
 
 call s:HI('Directory',       {'guifg': s:lime})
-call s:HI('SpecialKey',      {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('Special',         {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('WildMenu',        {'guifg': s:black, 'guibg': s:greys[1], 'gui': 'bold'})
 
 call s:HI('Title',           {'gui': 'underline'})
 
 call s:HI('Tag',             {'gui': 'bold'})
 
-" Look into: WildMenu, Question, MoreMsg, SpecialChar
+" Look into: Question, MoreMsg, SpecialChar
 
 "*** PYTHON ***
 call s:HI('pythonDecorator',     {'guifg': s:cerise})
