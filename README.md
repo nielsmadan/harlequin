@@ -1,4 +1,4 @@
 harlequin
 =========
 
-vim colorscheme inspired by molokai and bad wolf
+Dark, high contrast gvim colorscheme inspired by [molokai](https://github.com/tomasr/molokai) and [badwolf](https://github.com/sjl/badwolf).
