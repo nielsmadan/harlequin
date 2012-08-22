@@ -37,8 +37,6 @@ let s:mordant = '#AE0C00'
 let s:auburn = '#7C0A02'
 let s:moss = '#004225'
 
-let s:midnight = {'guifg': '#465457', 'guibg': '#000000'}
-
 let s:cursor = {'guifg': s:greys[4], 'guibg': s:white}
 
 " group_name, guifg, guibg, gui, guisp, '' means use default
@@ -52,6 +50,7 @@ function! s:HI(group_name, colors_dict)
     exe 'hi ' . a:group_name . ' guifg=' . guifg . ' guibg=' . guibg . ' gui=' . gui . ' guisp=' . guisp
 endfunction
 
+" Function without defaults.
 function! s:HIx(group_name, colors_dict)
     let hi_str = 'hi ' . a:group_name . ' '
 
@@ -102,8 +101,8 @@ call s:HI('Number',          {'guifg': s:lilac, 'gui': 'bold'})
 call s:HI('Constant',        {'guifg': s:lilac, 'gui': 'bold'})
 call s:HI('Float',           {'guifg': s:lilac, 'gui': 'bold'})
 
-call s:HI('FoldColumn',      s:midnight) 
-call s:HI('Folded',          s:midnight)
+call s:HI('FoldColumn',      {'guifg': s:greys[1], 'guibg': s:black}) ", 'gui': 'bold'})
+call s:HI('Folded',          {'guifg': s:greys[1], 'guibg': s:black}) ", 'gui': 'bold'})
 
 call s:HI('MatchParen',      {'guifg': s:black, 'guibg': s:gold, 'gui': 'bold'})
 
