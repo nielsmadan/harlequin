@@ -141,15 +141,15 @@ call s:HIx('Visual',         {'guibg': s:greys[3]})
 call s:HI('Search',          {'guifg': s:black, 'guibg': s:sunny})
 call s:HI('IncSearch',       {'guifg': s:black, 'guibg': s:gold})
 
-call s:HI('Pmenu',          {'guifg': s:black, 'guibg': s:gold})
-call s:HI('PmenuSel',       {'guifg': s:gold, 'guibg': s:black, 'gui': 'bold'})
-call s:HI('Pmenu',          {'guibg': s:greys[4]})
-call s:HI('Pmenu',          {'guifg': '#66D9EF'})
+call s:HI('Pmenu',           {'guifg': s:black, 'guibg': s:gold})
+call s:HI('PmenuSel',        {'guifg': s:gold, 'guibg': s:black, 'gui': 'bold'})
+call s:HI('Pmenu',           {'guibg': s:greys[4]})
+call s:HI('Pmenu',           {'guifg': '#66D9EF'})
 
-call s:HIx('DiffDelete',      {'guifg': s:auburn, 'guibg': s:auburn})
-call s:HIx('DiffText',        {'guibg': s:greys[3], 'gui': 'bold'})
-call s:HIx('DiffChange',      {'guibg': s:greys[2]})
-call s:HIx('DiffAdd',         {'guibg': s:moss})
+call s:HIx('DiffDelete',     {'guifg': s:auburn, 'guibg': s:auburn})
+call s:HIx('DiffText',       {'guibg': s:greys[3], 'gui': 'bold'})
+call s:HIx('DiffChange',     {'guibg': s:greys[2]})
+call s:HIx('DiffAdd',        {'guibg': s:moss})
 
 call s:HI('Underlined',      {'gui': 'underline'})
 
@@ -160,7 +160,7 @@ call s:HI('WildMenu',        {'guifg': s:black, 'guibg': s:lilac, 'gui': 'bold'}
 
 call s:HI('Title',           {'gui': 'underline'})
 
-call s:HI('Tag',             {'gui': 'bold'})
+call s:HIx('Tag',            {'gui': 'bold'})
 
 " Look into: MoreMsg, SpecialChar
 
