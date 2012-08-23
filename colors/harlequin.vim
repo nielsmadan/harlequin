@@ -18,7 +18,7 @@ let s:text_bg = '#1C1B1A'
 
 let s:white = '#FFFFFF'
 let s:black = '#000000'
-let s:greys = ['#BEBEBE', '#808080', '#696969', '#343434', '#080808']
+let s:greys = ['#BEBEBE', '#808080', '#696969', '#545454', '#343434', '#080808']
 
 let s:cerise = '#FF0033'
 
@@ -37,7 +37,7 @@ let s:mordant = '#AE0C00'
 let s:auburn = '#7C0A02'
 let s:moss = '#004225'
 
-let s:cursor = {'guifg': s:greys[4], 'guibg': s:white}
+let s:cursor = {'guifg': s:greys[5], 'guibg': s:white}
 
 " group_name, guifg, guibg, gui, guisp, '' means use default
 " defaults: guifg - fg, guibg - NONE, gui - none, guisp - fg
@@ -111,12 +111,12 @@ call s:HI('MatchParen',      {'guifg': s:black, 'guibg': s:gold, 'gui': 'bold'})
 
 call s:HI('LineNr',          {'guifg': s:greys[2]})
 call s:HI('NonText',         {'guifg': s:greys[2]})
-call s:HIx('CursorColumn',   {'guibg': s:greys[4]})
-call s:HIx('CursorLine',     {'guibg': s:greys[4]})
-call s:HI('SignColumn',      {'guibg': s:greys[4]})
-call s:HIx('ColorColumn',    {'guibg': s:greys[4]})
+call s:HIx('CursorColumn',   {'guibg': s:greys[5]})
+call s:HIx('CursorLine',     {'guibg': s:greys[5]})
+call s:HI('SignColumn',      {'guibg': s:greys[5]})
+call s:HIx('ColorColumn',    {'guibg': s:greys[5]})
 
-call s:HI('Error',           {'guifg': s:mordant, 'guibg': s:greys[4], 'gui': 'bold'})
+call s:HI('Error',           {'guifg': s:mordant, 'guibg': s:greys[5], 'gui': 'bold'})
 call s:HI('ErrorMsg',        {'guifg': s:mordant, 'gui': 'bold'})
 call s:HI('WarningMsg',      {'guifg': s:mordant})
 
@@ -125,8 +125,8 @@ call s:HI('vCursor',         s:cursor)
 call s:HI('iCursor',         s:cursor)
 
 call s:HI('StatusLine',      {'guifg': s:white, 'guibg': s:black, 'gui': 'bold'})
-call s:HI('StatusLineNC',    {'guifg': s:greys[1], 'guibg': s:greys[4], 'gui': 'bold'})
-call s:HI('VertSplit',       {'guifg': s:greys[1], 'guibg': s:greys[4], 'gui': 'bold'})
+call s:HI('StatusLineNC',    {'guifg': s:greys[1], 'guibg': s:greys[5], 'gui': 'bold'})
+call s:HI('VertSplit',       {'guifg': s:greys[1], 'guibg': s:greys[5], 'gui': 'bold'})
 
 call s:HI('ModeMsg',         {'guifg': s:sunny, 'gui': 'bold'})
 
@@ -137,19 +137,19 @@ if has("spell")
     call s:HIx('SpellRare',   {'guisp': '#FFFFFF', 'gui': 'undercurl'})
 endif
 
-call s:HIx('VisualNOS',      {'guibg': s:greys[3]})
-call s:HIx('Visual',         {'guibg': s:greys[3]})
+call s:HIx('VisualNOS',      {'guibg': s:greys[4]})
+call s:HIx('Visual',         {'guibg': s:greys[4]})
 call s:HI('Search',          {'guifg': s:black, 'guibg': s:sunny})
 call s:HI('IncSearch',       {'guifg': s:black, 'guibg': s:gold})
 
 call s:HI('Pmenu',           {'guifg': s:black, 'guibg': s:gold})
 call s:HI('PmenuSel',        {'guifg': s:gold, 'guibg': s:black, 'gui': 'bold'})
-call s:HI('Pmenu',           {'guibg': s:greys[4]})
+call s:HI('Pmenu',           {'guibg': s:greys[5]})
 call s:HI('Pmenu',           {'guifg': '#66D9EF'})
 
 call s:HIx('DiffDelete',     {'guifg': s:auburn, 'guibg': s:auburn})
 call s:HIx('DiffText',       {'guibg': s:greys[3], 'gui': 'bold'})
-call s:HIx('DiffChange',     {'guibg': s:greys[2]})
+call s:HIx('DiffChange',     {'guibg': s:greys[4]})
 call s:HIx('DiffAdd',        {'guibg': s:moss})
 
 call s:HI('Underlined',      {'gui': 'underline'})
