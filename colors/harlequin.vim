@@ -113,7 +113,7 @@ call s:HI('NonText',         {'guifg': s:greys[2]})
 call s:HIx('CursorColumn',   {'guibg': s:greys[4]})
 call s:HIx('CursorLine',     {'guibg': s:greys[4]})
 call s:HI('SignColumn',      {'guibg': s:greys[4]})
-call s:HI('ColorColumn',     {'guibg': s:greys[4]})
+call s:HIx('ColorColumn',     {'guibg': s:greys[4]})
 
 call s:HI('Error',           {'guifg': s:mordant, 'guibg': s:greys[4], 'gui': 'bold'})
 call s:HI('ErrorMsg',        {'guifg': s:mordant, 'gui': 'bold'})
