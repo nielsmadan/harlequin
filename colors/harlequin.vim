@@ -96,6 +96,7 @@ call s:HI('Todo',            {'guifg': s:frost, 'gui': 'bold'})
 call s:HI('String',          {'guifg': s:sunny}) 
 call s:HI('SpecialKey',      {'guifg': s:lilac, 'gui': 'bold'})
 call s:HI('Special',         {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('SpecialChar',     {'guifg': s:lilac, 'gui': 'bold'})
 
 call s:HI('Boolean',         {'guifg': s:lilac, 'gui': 'bold'})
 call s:HI('Character',       {'guifg': s:lilac, 'gui': 'bold'})
@@ -162,7 +163,7 @@ call s:HI('Title',           {'gui': 'underline'})
 
 call s:HIx('Tag',            {'gui': 'bold'})
 
-" Look into: MoreMsg, SpecialChar
+" Look into: MoreMsg
 
 "*** PYTHON ***
 call s:HI('pythonDecorator',     {'guifg': s:cerise})
