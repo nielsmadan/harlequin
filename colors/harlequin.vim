@@ -113,7 +113,7 @@ call s:HI('NonText',         {'guifg': s:greys[2]})
 call s:HIx('CursorColumn',   {'guibg': s:greys[4]})
 call s:HIx('CursorLine',     {'guibg': s:greys[4]})
 call s:HI('SignColumn',      {'guibg': s:greys[4]})
-call s:HIx('ColorColumn',     {'guibg': s:greys[4]})
+call s:HIx('ColorColumn',    {'guibg': s:greys[4]})
 
 call s:HI('Error',           {'guifg': s:mordant, 'guibg': s:greys[4], 'gui': 'bold'})
 call s:HI('ErrorMsg',        {'guifg': s:mordant, 'gui': 'bold'})
@@ -154,13 +154,15 @@ call s:HIx('DiffAdd',         {'guibg': s:moss})
 call s:HI('Underlined',      {'gui': 'underline'})
 
 call s:HI('Directory',       {'guifg': s:lime})
+call s:HIx('Question',       {'guifg': s:lime})
+  
 call s:HI('WildMenu',        {'guifg': s:black, 'guibg': s:greys[1], 'gui': 'bold'})
 
 call s:HI('Title',           {'gui': 'underline'})
 
 call s:HI('Tag',             {'gui': 'bold'})
 
-" Look into: Question, MoreMsg, SpecialChar
+" Look into: MoreMsg, SpecialChar
 
 "*** PYTHON ***
 call s:HI('pythonDecorator',     {'guifg': s:cerise})
