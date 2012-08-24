@@ -26,6 +26,8 @@ let s:lime = '#AEEE00'
 
 let s:gold = '#FFB829'
 
+let s:brick = '#CB4154'
+
 let s:lilac = '#AE81FF'
 
 let s:frost = '#2C89C7' 
@@ -70,7 +72,7 @@ call s:HI('Operator',        {'guifg': s:cerise})
 call s:HI('Label',           {'guifg': s:cerise})
 call s:HI('Repeat',          {'guifg': s:cerise, 'gui': 'bold'})
 
-call s:HI('Type',            {'guifg': s:cerise, 'gui': 'bold'})
+call s:HI('Type',            {'guifg': s:brick})
 call s:HI('StorageClass',    {'guifg': s:cerise})
 call s:HI('Structure',       {'guifg': s:cerise})
 call s:HI('TypeDef',         {'guifg': s:cerise, 'gui': 'bold'})
