@@ -141,8 +141,8 @@ endif
 
 call s:HIx('VisualNOS',      {'guibg': s:greys[4]})
 call s:HIx('Visual',         {'guibg': s:greys[4]})
-call s:HI('Search',          {'guifg': s:black, 'guibg': s:sunny})
-call s:HI('IncSearch',       {'guifg': s:black, 'guibg': s:gold})
+call s:HI('Search',          {'guifg': s:black, 'guibg': s:gold})
+call s:HI('IncSearch',       {'guifg': s:black, 'guibg': s:sunny})
 
 call s:HI('Pmenu',           {'guifg': s:black, 'guibg': s:gold})
 call s:HI('PmenuSel',        {'guifg': s:gold, 'guibg': s:black, 'gui': 'bold'})
