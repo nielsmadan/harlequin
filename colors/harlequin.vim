@@ -158,14 +158,13 @@ call s:HI('Underlined',      {'gui': 'underline'})
 
 call s:HI('Directory',       {'guifg': s:lime})
 call s:HI('Question',        {'guifg': s:lime})
+call s:HI('MoreMsg',         {'guifg': s:lime})
   
 call s:HI('WildMenu',        {'guifg': s:black, 'guibg': s:lilac, 'gui': 'bold'})
 
 call s:HI('Title',           {'gui': 'underline'})
 
 call s:HIx('Tag',            {'gui': 'bold'})
-
-" Look into: MoreMsg
 
 "*** PYTHON ***
 call s:HI('pythonDecorator',     {'guifg': s:cerise})
