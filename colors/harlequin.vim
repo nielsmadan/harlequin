@@ -170,3 +170,11 @@ call s:HIx('Tag',            {'gui': 'bold'})
 call s:HI('pythonDecorator',     {'guifg': s:cerise})
 call s:HI('pythonException',     {'guifg': s:lime, 'gui': 'bold'})
 call s:HI('pythonExceptions',    {'guifg': s:lime})
+
+"*** minibufexpl ***
+call s:HI('MBENormal',                 {'guifg': s:greys[1]})
+call s:HI('MBEVisibleNormal',          {'guifg': s:white, 'gui': 'bold'})
+call s:HI('MBEVisibleActive',          {'guifg': s:gold, 'gui': 'bold'})
+call s:HI('MBEChanged',                {'guifg': s:greys[1], 'gui': 'italic'})
+call s:HI('MBEVisibleChanged',         {'guifg': s:white, 'gui': 'bold,italic'})
+call s:HI('MBEVisibleChangedActive',   {'guifg': s:gold, 'gui': 'bold,italic'})
