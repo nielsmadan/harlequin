@@ -171,6 +171,27 @@ call s:HI('pythonDecorator',     {'guifg': s:cerise})
 call s:HI('pythonException',     {'guifg': s:lime, 'gui': 'bold'})
 call s:HI('pythonExceptions',    {'guifg': s:lime})
 
+"*** XML ***
+call s:HI('xmlProcessingDelim',       {'guifg': s:brick})
+call s:HI('xmlNamespace',             {'guifg': s:gold})
+call s:HI('xmlTag',                   {'guifg': s:gold})
+call s:HI('xmlTagName',               {'guifg': s:gold})
+call s:HI('xmlEndTag',                {'guifg': s:gold})
+call s:HI('xmlAttrib',                {'guifg': s:brick})
+call s:HI('xmlAttribPunct',           {'guifg': s:brick})
+call s:HI('xmlEntity',                {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('xmlEntityPunct',           {'guifg': s:lilac})
+
+"*** HTML ***
+call s:HI('htmlTagName',              {'guifg': s:gold})
+call s:HI('htmlTag',                  {'guifg': s:gold})
+call s:HI('htmlTagN',                 {'guifg': s:gold})
+call s:HI('htmlH1',                   {'gui': 'bold'})
+call s:HI('htmlH2',                   {'gui': 'bold'})
+call s:HI('htmlH3',                   {'gui': 'italic'})
+call s:HI('htmlTagN',                 {'guifg': s:gold})
+call s:HI('htmlScriptTag',            {'guifg': s:lime})
+
 "*** minibufexpl ***
 call s:HI('MBENormal',                 {'guifg': s:greys[1]})
 call s:HI('MBEVisibleNormal',          {'guifg': s:white, 'gui': 'bold'})
