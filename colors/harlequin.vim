@@ -183,6 +183,14 @@ call s:HI('rubyStringDelimiter',   {'guifg': s:sunny})
 call s:HI('rubyInterpolation',     {'guifg': s:lilac})
 call s:HI('rubyInterpolationDelimiter',     {'guifg': s:lilac})
 
+"*** CLOJURE ***
+call s:HI('clojureDefine',         {'guifg': s:cerise})
+call s:HI('clojureSpecial',        {'guifg': s:cerise})
+call s:HI('clojureCond',           {'guifg': s:cerise})
+call s:HI('clojureParen0',         {'guifg': s:text})
+call s:HI('clojureMacro',          {'guifg': s:lime, 'gui': 'bold'})
+call s:HI('clojureDispatch',       {'guifg': s:lilac, 'gui': 'bold'})
+
 "*** XML ***
 call s:HI('xmlProcessingDelim',       {'guifg': s:brick})
 call s:HI('xmlNamespace',             {'guifg': s:gold})
