@@ -171,6 +171,18 @@ call s:HI('pythonDecorator',     {'guifg': s:cerise})
 call s:HI('pythonException',     {'guifg': s:lime, 'gui': 'bold'})
 call s:HI('pythonExceptions',    {'guifg': s:lime})
 
+"*** RUBY ***
+call s:HI('rubyModule',            {'guifg': s:lime})
+call s:HI('rubyModuleNameTag',     {'guifg': s:text})
+call s:HI('rubyPseudoVariable',    {'guifg': s:text})
+call s:HI('rubyClass',             {'guifg': s:cerise})
+call s:HI('rubyClassNameTag',      {'guifg': s:gold})
+call s:HI('rubyDefine',            {'guifg': s:cerise})
+call s:HI('rubyConstant',          {'guifg': s:text})
+call s:HI('rubyStringDelimiter',   {'guifg': s:sunny})
+call s:HI('rubyInterpolation',     {'guifg': s:lilac})
+call s:HI('rubyInterpolationDelimiter',     {'guifg': s:lilac})
+
 "*** XML ***
 call s:HI('xmlProcessingDelim',       {'guifg': s:brick})
 call s:HI('xmlNamespace',             {'guifg': s:gold})
