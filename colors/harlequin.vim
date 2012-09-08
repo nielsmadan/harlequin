@@ -189,6 +189,7 @@ call s:HI('htmlTagN',                 {'guifg': s:gold})
 call s:HI('htmlH1',                   {'gui': 'bold'})
 call s:HI('htmlH2',                   {'gui': 'bold'})
 call s:HI('htmlH3',                   {'gui': 'italic'})
+call s:HI('htmlH4',                   {'gui': 'italic'})
 call s:HI('htmlTagN',                 {'guifg': s:gold})
 call s:HI('htmlScriptTag',            {'guifg': s:lime})
 
