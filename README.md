@@ -18,11 +18,11 @@ Pull requests welcome. Please open issues if you find something that looks wonky
 
 Currently hand-optimized for the following languages:
 
-C, python, clojure, xml, html, and ruby (though ruby still doesn't look so hot)
+C, python, clojure, vimscript, xml, html, and ruby (though ruby still doesn't look so hot)
 
 And the following plugins:
 
-minibufexplorer, vimdiff
+minibufexplorer, vim-easymotion, vimdiff
 
 ### screenshots ###
 
