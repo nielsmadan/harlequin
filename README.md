@@ -34,4 +34,12 @@ C
 
 ![c](http://i.imgur.com/ODbCD.png)
 
+Clojure
+
+![clojure](http://i.imgur.com/LoUNY.png)
+
+diffmode
+
+![diffmode](http://i.imgur.com/7GlFM.png)
+
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/bedf45835c6498be0baae617161f6477 "githalytics.com")](http://githalytics.com/nielsmadan/harlequin)
