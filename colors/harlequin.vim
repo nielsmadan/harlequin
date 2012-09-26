@@ -156,7 +156,7 @@ call s:HIx('DiffText',       {'guibg': s:greys[3], 'gui': 'bold'})
 call s:HIx('DiffChange',     {'guibg': s:greys[4]})
 call s:HIx('DiffAdd',        {'guibg': s:moss})
 
-call s:HI('Underlined',      {'gui': 'underline'})
+call s:HIx('Underlined',     {'gui': 'underline'})
 
 call s:HI('Directory',       {'guifg': s:lime})
 call s:HI('Question',        {'guifg': s:lime})
