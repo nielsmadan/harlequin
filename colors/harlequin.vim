@@ -193,6 +193,10 @@ call s:HI('clojureParen0',         {'guifg': s:text})
 call s:HI('clojureMacro',          {'guifg': s:lime, 'gui': 'bold'})
 call s:HI('clojureDispatch',       {'guifg': s:lilac, 'gui': 'bold'})
 
+"*** SCALA ***
+call s:HI('scalaClassName',        {'guifg': s:gold})
+call s:HI('scalaConstructor',      {'guifg': s:text})
+
 "*** VIMSCRIPT ***
 call s:HI('vimCommentTitle',       {'guifg': s:frost, 'gui': 'bold'})
 call s:HI('vimParenSep',           {'guifg': s:text})
