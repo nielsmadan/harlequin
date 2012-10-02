@@ -152,7 +152,7 @@ call s:HI('Pmenu',           {'guibg': s:greys[5]})
 call s:HI('Pmenu',           {'guifg': '#66D9EF'})
 
 call s:HIx('DiffDelete',     {'guifg': s:auburn, 'guibg': s:auburn})
-call s:HIx('DiffText',       {'guibg': s:greys[3], 'gui': 'bold'})
+call s:HIx('DiffText',       {'guibg': s:greys[3]})
 call s:HIx('DiffChange',     {'guibg': s:greys[4]})
 call s:HIx('DiffAdd',        {'guibg': s:moss})
 
@@ -224,6 +224,22 @@ call s:HI('htmlH3',                   {'gui': 'italic'})
 call s:HI('htmlH4',                   {'gui': 'italic'})
 call s:HI('htmlTagN',                 {'guifg': s:gold})
 call s:HI('htmlScriptTag',            {'guifg': s:lime})
+
+"*** CSS ***
+call s:HI('cssSelectorOp',            {'guifg': s:text})
+call s:HI('cssSelectorOp2',           {'guifg': s:text})
+call s:HI('cssBraces',                {'guifg': s:text})
+call s:HI('cssPseudoClass',           {'guifg': s:lime})
+call s:HI('cssValueNumber',           {'guifg': s:lilac})
+call s:HI('cssValueLength',           {'guifg': s:lilac})
+call s:HI('cssColor',                 {'guifg': s:lilac})
+call s:HI('cssCommonAttr',            {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('cssRenderAttr',            {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('cssBoxAttr',               {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('cssUIAttr',                {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('cssTextAttr',              {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('cssTableAttr',             {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('cssColorAttr',             {'guifg': s:lilac, 'gui': 'bold'})
 
 "*** minibufexpl ***
 call s:HI('MBENormal',                 {'guifg': s:greys[1]})
