@@ -185,6 +185,16 @@ call s:HI('rubyStringDelimiter',   {'guifg': s:sunny})
 call s:HI('rubyInterpolation',     {'guifg': s:lilac})
 call s:HI('rubyInterpolationDelimiter',     {'guifg': s:lilac})
 
+"*** HTML/JAVASCRIPT ***
+call s:HI('javascript',            {'guifg': s:text})
+
+"*** JAVASCRIPT ***
+call s:HI('javascriptBraces',      {'guifg': s:gold})
+call s:HI('javascriptNull',        {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('javascriptFunction',    {'guifg': s:cerise, 'gui': 'bold'})
+call s:HI('javascriptIdentifier',  {'guifg': s:brick})
+call s:HI('javascriptMember',      {'guifg': s:gold})
+
 "*** CLOJURE ***
 call s:HI('clojureDefine',         {'guifg': s:cerise})
 call s:HI('clojureSpecial',        {'guifg': s:cerise})
