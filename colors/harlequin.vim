@@ -185,15 +185,15 @@ call s:HI('rubyStringDelimiter',   {'guifg': s:sunny})
 call s:HI('rubyInterpolation',     {'guifg': s:lilac})
 call s:HI('rubyInterpolationDelimiter',     {'guifg': s:lilac})
 
-"*** HTML/JAVASCRIPT ***
-call s:HI('javascript',            {'guifg': s:text})
-
 "*** JAVASCRIPT ***
-call s:HI('javascriptBraces',      {'guifg': s:gold})
-call s:HI('javascriptNull',        {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('javascriptFunction',    {'guifg': s:cerise, 'gui': 'bold'})
-call s:HI('javascriptIdentifier',  {'guifg': s:brick})
-call s:HI('javascriptMember',      {'guifg': s:gold})
+call s:HI('javaScriptNull',        {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('javaScriptNumber',      {'guifg': s:lilac, 'gui': 'bold'})
+call s:HI('javaScriptFunction',    {'guifg': s:cerise})
+call s:HI('javaScriptOperator',    {'guifg': s:cerise, 'gui': 'bold'})
+call s:HI('javaScriptBraces',      {'guifg': s:text})
+call s:HI('javaScriptIdentifier',  {'guifg': s:brick})
+call s:HI('javaScriptMember',      {'guifg': s:gold})
+call s:HI('javaScriptType',        {'guifg': s:gold})
 
 "*** CLOJURE ***
 call s:HI('clojureDefine',         {'guifg': s:cerise})
@@ -235,6 +235,9 @@ call s:HI('htmlH2',                   {'gui': 'bold'})
 call s:HI('htmlH3',                   {'gui': 'italic'})
 call s:HI('htmlH4',                   {'gui': 'italic'})
 call s:HI('htmlScriptTag',            {'guifg': s:lime})
+
+"*** HTML/JAVASCRIPT ***
+call s:HI('javaScript',               {'guifg': s:text})
 
 "*** CSS ***
 call s:HI('cssSelectorOp',            {'guifg': s:text})
