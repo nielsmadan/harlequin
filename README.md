@@ -25,7 +25,7 @@ C, python, ruby, javascript, clojure, scala, vimscript, xml, html, and css
 And the following plugins:
 
 ```
-minibufexplorer, vim-easymotion, vimdiff
+minibufexplorer, vim-easymotion, vimdiff, CtrlP
 ```
 
 ### screenshots ###

@@ -267,3 +267,7 @@ call s:HI('MBEVisibleChangedActive',   {'guifg': s:frost, 'gui': 'bold,italic'})
 "*** vim-easymotion ***
 call s:HI('EasyMotionTarget',          {'guifg': s:cerise, 'gui': 'bold'})
 call s:HI('EasyMotionShade',           {'guifg': s:greys[2]})
+
+"*** CtrlP ***
+call s:HI('CtrlPNoEntries',            {'guifg': s:mordant})
+call s:HI('CtrlPPrtBase',              {'gui': 'bold'})
