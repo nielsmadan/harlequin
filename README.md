@@ -1,6 +1,6 @@
 ## harlequin ##
 
-Dark, high contrast, tasteful colorscheme for gvim and 256 color terminal inspired by [molokai](https://github.com/tomasr/molokai) and [badwolf](https://github.com/sjl/badwolf).
+Dark, high contrast, warm colorscheme for gvim and 256 color terminal inspired by [molokai](https://github.com/tomasr/molokai) and [badwolf](https://github.com/sjl/badwolf).
 
 You can also get it from vim.org [here](http://www.vim.org/scripts/script.php?script_id=4195).
 

@@ -43,8 +43,7 @@ let s:mordant = ['#AE0C00', 124]
 let s:auburn = ['#7C0A02', 88]
 let s:moss = ['#004225', 22]
 
-" group_name, [guifg, guibg, gui, guisp], '' means use default
-" defaults: guifg - fg, guibg - bg, gui - none, guisp - fg
+" pass empty string for defaults: guifg - fg, guibg - bg, gui - none, guisp - fg
 function! s:Highlight(group_name, guifg, guibg, gui, guisp)
     if !empty(a:guifg)
         let guifg = a:guifg
@@ -203,8 +202,8 @@ call s:Highlight('Pmenu',           s:frost, '', '', '')
 
 call s:HighlightX('DiffDelete',     s:auburn, s:auburn, '', '')
 call s:HighlightX('DiffText',       '', s:greys[3], '', '')
-call s:HighlightX('DiffChange',     s:greys[4], '', '', '')
-call s:HighlightX('DiffAdd',        s:moss, '', '', '')
+call s:HighlightX('DiffChange',     '', s:greys[4], '', '')
+call s:HighlightX('DiffAdd',        '', s:moss, '', '')
 
 call s:HighlightX('Underlined',     '', '', 'underline', '')
 
