@@ -11,263 +11,313 @@ if exists("syntax_on")
     syntax reset
 endif
 
+if !has("gui_running") && &t_Co != 256
+    finish
+endif
+
 let colors_name = "harlequin"
 
-let s:text = '#F8F8F2'
-let s:text_bg = '#1C1B1A'
+let s:text = ['#F8F8F2', 15]
+let s:text_bg = ['#1C1B1A', 234]
 
-let s:white = '#FFFFFF'
-let s:black = '#000000'
-let s:greys = ['#BEBEBE', '#808080', '#696969', '#545454', '#343434', '#080808']
+let s:white = ['#FFFFFF', 15]
+let s:black = ['#000000', 0]
+let s:greys = [['#BEBEBE', 250], ['#808080', 244], ['#696969', 242], ['#545454', 240], ['#343434', 236], ['#080808', 232]]
 
-let s:cerise = '#FF0033'
+let s:cerise = ['#FF0033', 197]
 
-let s:lime = '#AEEE00'
+let s:lime = ['#AEEE00', 154]
 
-let s:gold = '#FFB829'
+let s:gold = ['#FFB829', 214]
 
-let s:brick = '#CB4154'
+let s:brick = ['#CB4154', 167]
 
-let s:lilac = '#AE81FF'
+let s:lilac = ['#AE81FF', 141]
 
-let s:frost = '#2C89C7' 
+let s:frost = ['#2C89C7', 68] 
 
-let s:sunny = '#FFFC7F'
+let s:sunny = ['#FFFC7F', 228]
 
-let s:mordant = '#AE0C00'
+let s:mordant = ['#AE0C00', 124]
 
-let s:auburn = '#7C0A02'
-let s:moss = '#004225'
+let s:auburn = ['#7C0A02', 88]
+let s:moss = ['#004225', 22]
 
-let s:cursor = {'guifg': s:greys[5], 'guibg': s:white}
+" group_name, [guifg, guibg, gui, guisp], '' means use default
+" defaults: guifg - fg, guibg - bg, gui - none, guisp - fg
+function! s:Highlight(group_name, guifg, guibg, gui, guisp)
+    if !empty(a:guifg)
+        let guifg = a:guifg
+    else
+        let guifg = ['fg', 'fg']
+    endif
+    if !empty(a:guibg)
+        let guibg = a:guibg
+    else
+        let guibg = ['bg', 'bg']
+    endif
+    if !empty(a:gui)
+        let gui = a:gui
+    else
+        let gui = 'none'
+    endif
+    if !empty(a:guisp)
+        let guisp = a:guisp
+    else
+        let guisp = ['fg', 'fg']
+    endif
 
-" group_name, guifg, guibg, gui, guisp, '' means use default
-" defaults: guifg - fg, guibg - NONE, gui - none, guisp - fg
-function! s:HI(group_name, colors_dict)
-    let guifg = get(a:colors_dict, 'guifg', 'fg')
-    let guibg = get(a:colors_dict, 'guibg', 'NONE')
-    let gui = get(a:colors_dict, 'gui', 'none')
-    let guisp = get(a:colors_dict, 'guisp', 'fg')
-
-    exe 'hi ' . a:group_name . ' guifg=' . guifg . ' guibg=' . guibg . ' gui=' . gui . ' guisp=' . guisp
+    if has("gui_running")
+        exe 'hi ' . a:group_name . ' guifg=' . guifg[0] . ' guibg=' . guibg[0] . ' gui=' . gui . ' guisp=' . guisp[0]
+    else
+        exe 'hi ' . a:group_name . ' ctermfg=' . guifg[1] . ' ctermbg=' . guibg[1] . ' cterm=' . gui
+    endif
 endfunction
 
 " Function without defaults.
-function! s:HIx(group_name, colors_dict)
-    let hi_str = 'hi ' . a:group_name . ' '
+function! s:HighlightX(group_name, guifg, guibg, gui, guisp)
+    if empty(a:guifg) && empty(a:guibg) && empty(a:gui) && !has("gui_running")
+        return
+    endif
 
-    for [key, val] in items(a:colors_dict)
-        let hi_str = hi_str . key . '=' . val . ' '
-    endfor
+    let hi_str = 'hi ' . a:group_name
+
+    if !empty(a:guifg)
+        if has("gui_running")
+            let hi_str = hi_str . ' guifg=' . a:guifg[0]
+        else
+            let hi_str = hi_str . ' ctermfg=' . a:guifg[1]
+        endif
+    endif
+
+    if !empty(a:guibg)
+        if has("gui_running")
+            let hi_str = hi_str . ' guibg=' . a:guibg[0]
+        else
+            let hi_str = hi_str . ' ctermbg=' . a:guibg[1]
+        endif
+    endif
+
+    if !empty(a:gui)
+        if has("gui_running")
+            let hi_str = hi_str . ' gui=' . a:gui
+        else
+            let hi_str = hi_str . ' cterm=' . a:gui
+        endif
+    endif
+
+    if !empty(a:guisp) && has("gui_running")
+        let hi_str = hi_str . ' guisp=' . a:guisp[0]
+    endif
 
     exe hi_str
 endfunction
 
-call s:HI('Normal',          {'guifg': s:text, 'guibg': s:text_bg})
+call s:Highlight('Normal', s:text, s:text_bg, '', '')
 
-call s:HI('Statement',       {'guifg': s:cerise, 'gui': 'bold'})
-call s:HI('Keyword',         {'guifg': s:cerise, 'gui': 'bold'})
-call s:HI('Conditional',     {'guifg': s:cerise, 'gui': 'bold'})
-call s:HI('Operator',        {'guifg': s:cerise})
-call s:HI('Label',           {'guifg': s:cerise})
-call s:HI('Repeat',          {'guifg': s:cerise, 'gui': 'bold'})
+call s:Highlight('Statement',   s:cerise, '', 'bold', '')
+call s:Highlight('Keyword',     s:cerise, '', 'bold', '')
+call s:Highlight('Conditional', s:cerise, '', 'bold', '')
+call s:Highlight('Operator',    s:cerise, '', '', '')
+call s:Highlight('Label',       s:cerise, '', '', '')
+call s:Highlight('Repeat',      s:cerise, '', 'bold', '')
 
-call s:HI('Type',            {'guifg': s:brick})
-call s:HI('StorageClass',    {'guifg': s:cerise})
-call s:HI('Structure',       {'guifg': s:cerise})
-call s:HI('TypeDef',         {'guifg': s:cerise, 'gui': 'bold'})
+call s:Highlight('Type',            s:brick, '', '', '')
+call s:Highlight('StorageClass',    s:cerise, '', '', '')
+call s:Highlight('Structure',       s:cerise, '', '', '')
+call s:Highlight('TypeDef',         s:cerise, '', 'bold', '')
 
-call s:HI('Exception',       {'guifg': s:lime, 'gui': 'bold'})
-call s:HI('Include',         {'guifg': s:lime, 'gui': 'bold'})
+call s:Highlight('Exception',       s:lime, '', 'bold', '')
+call s:Highlight('Include',         s:lime, '', 'bold', '')
 
-call s:HI('PreProc',         {'guifg': s:lime})
-call s:HI('Macro',           {'guifg': s:lime})
-call s:HI('Define',          {'guifg': s:lime})
-call s:HI('Delimiter',       {'guifg': s:lime})
-call s:HI('Ignore',          {'guifg': s:lime})
-call s:HI('PreCondit',       {'guifg': s:lime, 'gui': 'bold'})
-call s:HI('Debug',           {'guifg': s:lime, 'gui': 'bold'})
+call s:Highlight('PreProc',         s:lime, '', '', '')
+call s:Highlight('Macro',           s:lime, '', '', '')
+call s:Highlight('Define',          s:lime, '', '', '')
+call s:Highlight('Delimiter',       s:lime, '', '', '')
+call s:Highlight('Ignore',          s:lime, '', '', '')
+call s:Highlight('PreCondit',       s:lime, '', 'bold', '')
+call s:Highlight('Debug',           s:lime, '', 'bold', '')
 
-call s:HI('Function',        {'guifg': s:gold})
-call s:HI('Identifier',      {'guifg': s:gold})
+call s:Highlight('Function',        s:gold, '', '', '')
+call s:Highlight('Identifier',      s:gold, '', '', '')
 
-call s:HI('Comment',         {'guifg': s:frost})
-call s:HI('CommentEmail',    {'guifg': s:frost, 'gui': 'underline'})
-call s:HI('CommentUrl',      {'guifg': s:frost, 'gui': 'underline'})
-call s:HI('SpecialComment',  {'guifg': s:frost, 'gui': 'bold'})
-call s:HI('Todo',            {'guifg': s:frost, 'gui': 'bold'})
+call s:Highlight('Comment',         s:frost, '', '', '')
+call s:Highlight('CommentEmail',    s:frost, '', 'underline', '')
+call s:Highlight('CommentUrl',      s:frost, '', 'underline', '')
+call s:Highlight('SpecialComment',  s:frost, '', 'bold', '')
+call s:Highlight('Todo',            s:frost, '', 'bold', '')
 
-call s:HI('String',          {'guifg': s:sunny}) 
-call s:HI('SpecialKey',      {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('Special',         {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('SpecialChar',     {'guifg': s:lilac, 'gui': 'bold'})
+call s:Highlight('String',          s:sunny, '', '', '') 
+call s:Highlight('SpecialKey',      s:lilac, '', 'bold', '')
+call s:Highlight('Special',         s:lilac, '', 'bold', '')
+call s:Highlight('SpecialChar',     s:lilac, '', 'bold', '')
 
-call s:HI('Boolean',         {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('Character',       {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('Number',          {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('Constant',        {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('Float',           {'guifg': s:lilac, 'gui': 'bold'})
+call s:Highlight('Boolean',         s:lilac, '', 'bold', '')
+call s:Highlight('Character',       s:lilac, '', 'bold', '')
+call s:Highlight('Number',          s:lilac, '', 'bold', '')
+call s:Highlight('Constant',        s:lilac, '', 'bold', '')
+call s:Highlight('Float',           s:lilac, '', 'bold', '')
 
-call s:HI('FoldColumn',      {'guifg': s:greys[1], 'guibg': s:black}) ", 'gui': 'bold'})
-call s:HI('Folded',          {'guifg': s:greys[1], 'guibg': s:black}) ", 'gui': 'bold'})
+call s:Highlight('FoldColumn',      s:greys[1], s:black, '', '')
+call s:Highlight('Folded',          s:greys[1], s:black, '', '')
 
-call s:HI('MatchParen',      {'guifg': s:black, 'guibg': s:gold, 'gui': 'bold'})
+call s:Highlight('MatchParen',      s:black, s:gold, 'bold', '')
 
-call s:HI('LineNr',          {'guifg': s:greys[2]})
-call s:HI('NonText',         {'guifg': s:greys[2]})
-call s:HIx('CursorColumn',   {'guibg': s:greys[5]})
-call s:HIx('CursorLine',     {'guibg': s:greys[5]})
-call s:HI('SignColumn',      {'guibg': s:greys[5]})
-call s:HIx('ColorColumn',    {'guibg': s:greys[5]})
+call s:Highlight('LineNr',          s:greys[2], '', '', '')
+call s:Highlight('NonText',         s:greys[2], '', '', '')
+call s:HighlightX('CursorColumn',   '', s:greys[5], '', '')
+call s:HighlightX('CursorLine',     '', s:greys[5], '', '')
+call s:Highlight('SignColumn',      '', s:greys[5], '', '')
+call s:HighlightX('ColorColumn',    '', s:greys[5], '', '')
 
-call s:HI('Error',           {'guifg': s:mordant, 'guibg': s:greys[5], 'gui': 'bold'})
-call s:HI('ErrorMsg',        {'guifg': s:mordant, 'gui': 'bold'})
-call s:HI('WarningMsg',      {'guifg': s:mordant})
+call s:Highlight('Error',           s:mordant, s:greys[5], 'bold', '')
+call s:Highlight('ErrorMsg',        s:mordant, '', 'bold', '')
+call s:Highlight('WarningMsg',      s:mordant, '', '', '')
 
-call s:HI('Cursor',          s:cursor)
-call s:HI('vCursor',         s:cursor)
-call s:HI('iCursor',         s:cursor)
+call s:Highlight('Cursor',          s:greys[5], s:white, '', '')
+call s:Highlight('vCursor',         s:greys[5], s:white, '', '')
+call s:Highlight('iCursor',         s:greys[5], s:white, '', '')
 
-call s:HI('StatusLine',      {'guifg': s:white, 'guibg': s:black, 'gui': 'bold'})
-call s:HI('StatusLineNC',    {'guifg': s:greys[1], 'guibg': s:greys[5], 'gui': 'bold'})
-call s:HI('VertSplit',       {'guifg': s:greys[1], 'guibg': s:greys[5], 'gui': 'bold'})
+call s:Highlight('StatusLine',      s:white, s:black, 'bold', '')
+call s:Highlight('StatusLineNC',    s:greys[1], s:greys[5], 'bold', '')
+call s:Highlight('VertSplit',       s:greys[1], s:greys[5], 'bold', '')
 
-call s:HI('ModeMsg',         {'guifg': s:sunny, 'gui': 'bold'})
+call s:Highlight('ModeMsg',         s:sunny, '', 'bold', '')
 
 if has("spell")
-    call s:HIx('SpellBad',    {'guisp': '#FF0000', 'gui': 'undercurl'})
-    call s:HIx('SpellCap',    {'guisp': '#7070F0', 'gui': 'undercurl'})
-    call s:HIx('SpellLocal',  {'guisp': '#70F0F0', 'gui': 'undercurl'})
-    call s:HIx('SpellRare',   {'guisp': '#FFFFFF', 'gui': 'undercurl'})
+    call s:HighlightX('SpellBad',    '', '', 'undercurl', s:mordant)
+    call s:HighlightX('SpellCap',    '', '', 'undercurl', s:auburn)
+    call s:HighlightX('SpellLocal',  '', '', 'undercurl', s:auburn)
+    call s:HighlightX('SpellRare',   '', '', 'undercurl', s:white)
 endif
 
-call s:HIx('VisualNOS',      {'guibg': s:greys[4]})
-call s:HIx('Visual',         {'guibg': s:greys[4]})
-call s:HI('Search',          {'guifg': s:black, 'guibg': s:gold})
-call s:HI('IncSearch',       {'guifg': s:black, 'guibg': s:sunny})
+call s:HighlightX('VisualNOS',      '', s:greys[4], '', '')
+call s:HighlightX('Visual',         '', s:greys[4], '', '')
+call s:Highlight('Search',          s:black, s:gold, '', '')
+call s:Highlight('IncSearch',       s:black, s:sunny, '', '')
 
-call s:HI('Pmenu',           {'guifg': s:black, 'guibg': s:gold})
-call s:HI('PmenuSel',        {'guifg': s:gold, 'guibg': s:black, 'gui': 'bold'})
-call s:HI('Pmenu',           {'guibg': s:greys[5]})
-call s:HI('Pmenu',           {'guifg': '#66D9EF'})
+call s:Highlight('Pmenu',           s:black, s:gold, '', '')
+call s:Highlight('PmenuSel',        s:gold, s:black, 'bold', '')
+call s:Highlight('Pmenu',           '', s:greys[5], '', '')
+call s:Highlight('Pmenu',           s:frost, '', '', '')
 
-call s:HIx('DiffDelete',     {'guifg': s:auburn, 'guibg': s:auburn})
-call s:HIx('DiffText',       {'guibg': s:greys[3]})
-call s:HIx('DiffChange',     {'guibg': s:greys[4]})
-call s:HIx('DiffAdd',        {'guibg': s:moss})
+call s:HighlightX('DiffDelete',     s:auburn, s:auburn, '', '')
+call s:HighlightX('DiffText',       '', s:greys[3], '', '')
+call s:HighlightX('DiffChange',     s:greys[4], '', '', '')
+call s:HighlightX('DiffAdd',        s:moss, '', '', '')
 
-call s:HIx('Underlined',     {'gui': 'underline'})
+call s:HighlightX('Underlined',     '', '', 'underline', '')
 
-call s:HI('Directory',       {'guifg': s:lime})
-call s:HI('Question',        {'guifg': s:lime})
-call s:HI('MoreMsg',         {'guifg': s:lime})
+call s:Highlight('Directory',       s:lime, '', '', '')
+call s:Highlight('Question',        s:lime, '', '', '')
+call s:Highlight('MoreMsg',         s:lime, '', '', '')
   
-call s:HI('WildMenu',        {'guifg': s:black, 'guibg': s:lilac, 'gui': 'bold'})
+call s:Highlight('WildMenu',        s:black, s:lilac, 'bold', '')
 
-call s:HI('Title',           {'gui': 'underline'})
+call s:Highlight('Title',           '', '', 'underline', '')
 
-call s:HIx('Tag',            {'gui': 'bold'})
+call s:HighlightX('Tag',            '', '', 'bold', '')
 
 "*** PYTHON ***
-call s:HI('pythonDecorator',     {'guifg': s:cerise})
-call s:HI('pythonException',     {'guifg': s:lime, 'gui': 'bold'})
-call s:HI('pythonExceptions',    {'guifg': s:lime})
+call s:Highlight('pythonDecorator',     s:cerise, '', '', '')
+call s:Highlight('pythonException',     s:lime, '', 'bold', '')
+call s:Highlight('pythonExceptions',    s:lime, '', '', '')
 
 "*** RUBY ***
-call s:HI('rubyModule',            {'guifg': s:lime})
-call s:HI('rubyModuleNameTag',     {'guifg': s:text})
-call s:HI('rubyPseudoVariable',    {'guifg': s:text})
-call s:HI('rubyClass',             {'guifg': s:cerise})
-call s:HI('rubyClassNameTag',      {'guifg': s:gold})
-call s:HI('rubyDefine',            {'guifg': s:cerise})
-call s:HI('rubyConstant',          {'guifg': s:text})
-call s:HI('rubyStringDelimiter',   {'guifg': s:sunny})
-call s:HI('rubyInterpolation',     {'guifg': s:lilac})
-call s:HI('rubyInterpolationDelimiter',     {'guifg': s:lilac})
+call s:Highlight('rubyModule',            s:lime, '', '', '')
+call s:Highlight('rubyModuleNameTag',     s:text, '', '', '')
+call s:Highlight('rubyPseudoVariable',    s:text, '', '', '')
+call s:Highlight('rubyClass',             s:cerise, '', '', '')
+call s:Highlight('rubyClassNameTag',      s:gold, '', '', '')
+call s:Highlight('rubyDefine',            s:cerise, '', '', '')
+call s:Highlight('rubyConstant',          s:text, '', '', '')
+call s:Highlight('rubyStringDelimiter',   s:sunny, '', '', '')
+call s:Highlight('rubyInterpolation',     s:lilac, '', '', '')
+call s:Highlight('rubyInterpolationDelimiter',     s:lilac, '', '', '')
 
 "*** JAVASCRIPT ***
-call s:HI('javaScriptNull',        {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('javaScriptNumber',      {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('javaScriptFunction',    {'guifg': s:cerise})
-call s:HI('javaScriptOperator',    {'guifg': s:cerise, 'gui': 'bold'})
-call s:HI('javaScriptBraces',      {'guifg': s:text})
-call s:HI('javaScriptIdentifier',  {'guifg': s:brick})
-call s:HI('javaScriptMember',      {'guifg': s:gold})
-call s:HI('javaScriptType',        {'guifg': s:gold})
+call s:Highlight('javaScriptNull',        s:lilac, '', 'bold', '')
+call s:Highlight('javaScriptNumber',      s:lilac, '', 'bold', '')
+call s:Highlight('javaScriptFunction',    s:cerise, '', '', '')
+call s:Highlight('javaScriptOperator',    s:cerise, '', 'bold', '')
+call s:Highlight('javaScriptBraces',      s:text, '', '', '')
+call s:Highlight('javaScriptIdentifier',  s:brick, '', '', '')
+call s:Highlight('javaScriptMember',      s:gold, '', '', '')
+call s:Highlight('javaScriptType',        s:gold, '', '', '')
 
 "*** CLOJURE ***
-call s:HI('clojureDefine',         {'guifg': s:cerise})
-call s:HI('clojureSpecial',        {'guifg': s:cerise})
-call s:HI('clojureCond',           {'guifg': s:cerise})
-call s:HI('clojureParen0',         {'guifg': s:text})
-call s:HI('clojureMacro',          {'guifg': s:lime, 'gui': 'bold'})
-call s:HI('clojureDispatch',       {'guifg': s:lilac, 'gui': 'bold'})
+call s:Highlight('clojureDefine',         s:cerise, '', '', '')
+call s:Highlight('clojureSpecial',        s:cerise, '', '', '')
+call s:Highlight('clojureCond',           s:cerise, '', '', '')
+call s:Highlight('clojureParen0',         s:text, '', '', '')
+call s:Highlight('clojureMacro',          s:lime, '', 'bold', '')
+call s:Highlight('clojureDispatch',       s:lilac, '', 'bold', '')
 
 "*** SCALA ***
-call s:HI('scalaClassName',        {'guifg': s:gold})
-call s:HI('scalaConstructor',      {'guifg': s:text})
+call s:Highlight('scalaClassName',        s:gold, '', '', '')
+call s:Highlight('scalaConstructor',      s:text, '', '', '')
 
 "*** VIMSCRIPT ***
-call s:HI('vimCommentTitle',       {'guifg': s:frost, 'gui': 'bold'})
-call s:HI('vimParenSep',           {'guifg': s:text})
-call s:HI('vimSep',                {'guifg': s:text})
-call s:HI('vimOper',               {'guifg': s:text})
+call s:Highlight('vimCommentTitle',       s:frost, '', 'bold', '')
+call s:Highlight('vimParenSep',           s:text, '', '', '')
+call s:Highlight('vimSep',                s:text, '', '', '')
+call s:Highlight('vimOper',               s:text, '', '', '')
 
 "*** XML ***
-call s:HI('xmlProcessingDelim',       {'guifg': s:brick})
-call s:HI('xmlNamespace',             {'guifg': s:gold})
-call s:HI('xmlTag',                   {'guifg': s:gold})
-call s:HI('xmlTagName',               {'guifg': s:gold})
-call s:HI('xmlEndTag',                {'guifg': s:gold})
-call s:HI('xmlAttrib',                {'guifg': s:brick})
-call s:HI('xmlAttribPunct',           {'guifg': s:brick})
-call s:HI('xmlEntity',                {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('xmlEntityPunct',           {'guifg': s:lilac})
+call s:Highlight('xmlProcessingDelim',       s:brick, '', '', '')
+call s:Highlight('xmlNamespace',             s:gold, '', '', '')
+call s:Highlight('xmlTag',                   s:gold, '', '', '')
+call s:Highlight('xmlTagName',               s:gold, '', '', '')
+call s:Highlight('xmlEndTag',                s:gold, '', '', '')
+call s:Highlight('xmlAttrib',                s:brick, '', '', '')
+call s:Highlight('xmlAttribPunct',           s:brick, '', '', '')
+call s:Highlight('xmlEntity',                s:lilac, '', 'bold', '')
+call s:Highlight('xmlEntityPunct',           s:lilac, '', '', '')
 
 "*** HTML ***
-call s:HI('htmlTagName',              {'guifg': s:gold})
-call s:HI('htmlTag',                  {'guifg': s:gold})
-call s:HI('htmlTagN',                 {'guifg': s:gold})
-call s:HI('htmlEvent',                {'guifg': s:brick})
-call s:HI('htmlEventDQ',              {'guifg': s:lime})
-call s:HI('htmlH1',                   {'gui': 'bold'})
-call s:HI('htmlH2',                   {'gui': 'bold'})
-call s:HI('htmlH3',                   {'gui': 'italic'})
-call s:HI('htmlH4',                   {'gui': 'italic'})
-call s:HI('htmlScriptTag',            {'guifg': s:lime})
+call s:Highlight('htmlTagName',              s:gold, '', '', '')
+call s:Highlight('htmlTag',                  s:gold, '', '', '')
+call s:Highlight('htmlTagN',                 s:gold, '', '', '')
+call s:Highlight('htmlEvent',                s:brick, '', '', '')
+call s:Highlight('htmlEventDQ',              s:lime, '', '', '')
+call s:Highlight('htmlH1',                   '', '', 'bold', '')
+call s:Highlight('htmlH2',                   '', '', 'bold', '')
+call s:Highlight('htmlH3',                   '', '', 'italic', '')
+call s:Highlight('htmlH4',                   '', '', 'italic', '')
+call s:Highlight('htmlScriptTag',            s:lime, '', '', '')
 
 "*** HTML/JAVASCRIPT ***
-call s:HI('javaScript',               {'guifg': s:text})
+call s:Highlight('javaScript',               s:text, '', '', '')
 
 "*** CSS ***
-call s:HI('cssSelectorOp',            {'guifg': s:text})
-call s:HI('cssSelectorOp2',           {'guifg': s:text})
-call s:HI('cssBraces',                {'guifg': s:text})
-call s:HI('cssPseudoClass',           {'guifg': s:lime})
-call s:HI('cssValueNumber',           {'guifg': s:lilac})
-call s:HI('cssValueLength',           {'guifg': s:lilac})
-call s:HI('cssColor',                 {'guifg': s:lilac})
-call s:HI('cssImportant',             {'guifg': s:lime, 'gui': 'bold'})
-call s:HI('cssCommonAttr',            {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('cssRenderAttr',            {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('cssBoxAttr',               {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('cssUIAttr',                {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('cssTextAttr',              {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('cssTableAttr',             {'guifg': s:lilac, 'gui': 'bold'})
-call s:HI('cssColorAttr',             {'guifg': s:lilac, 'gui': 'bold'})
+call s:Highlight('cssSelectorOp',            s:text, '', '', '')
+call s:Highlight('cssSelectorOp2',           s:text, '', '', '')
+call s:Highlight('cssBraces',                s:text, '', '', '')
+call s:Highlight('cssPseudoClass',           s:lime, '', '', '')
+call s:Highlight('cssValueNumber',           s:lilac, '', '', '')
+call s:Highlight('cssValueLength',           s:lilac, '', '', '')
+call s:Highlight('cssColor',                 s:lilac, '', '', '')
+call s:Highlight('cssImportant',             s:lime, '', 'bold', '')
+call s:Highlight('cssCommonAttr',            s:lilac, '', 'bold', '')
+call s:Highlight('cssRenderAttr',            s:lilac, '', 'bold', '')
+call s:Highlight('cssBoxAttr',               s:lilac, '', 'bold', '')
+call s:Highlight('cssUIAttr',                s:lilac, '', 'bold', '')
+call s:Highlight('cssTextAttr',              s:lilac, '', 'bold', '')
+call s:Highlight('cssTableAttr',             s:lilac, '', 'bold', '')
+call s:Highlight('cssColorAttr',             s:lilac, '', 'bold', '')
 
 "*** minibufexpl ***
-call s:HI('MBENormal',                 {'guifg': s:greys[1]})
-call s:HI('MBEVisibleNormal',          {'guifg': s:white, 'gui': 'bold'})
-call s:HI('MBEVisibleActive',          {'guifg': s:frost, 'gui': 'bold'})
-call s:HI('MBEChanged',                {'guifg': s:greys[1], 'gui': 'italic'})
-call s:HI('MBEVisibleChanged',         {'guifg': s:white, 'gui': 'bold,italic'})
-call s:HI('MBEVisibleChangedActive',   {'guifg': s:frost, 'gui': 'bold,italic'})
+call s:Highlight('MBENormal',                 s:greys[1], '', '', '')
+call s:Highlight('MBEVisibleNormal',          s:white, '', 'bold', '')
+call s:Highlight('MBEVisibleActive',          s:frost, '', 'bold', '')
+call s:Highlight('MBEChanged',                s:greys[1], '', 'italic', '')
+call s:Highlight('MBEVisibleChanged',         s:white, '', 'bold,italic', '')
+call s:Highlight('MBEVisibleChangedActive',   s:frost, '', 'bold,italic', '')
 
 "*** vim-easymotion ***
-call s:HI('EasyMotionTarget',          {'guifg': s:cerise, 'gui': 'bold'})
-call s:HI('EasyMotionShade',           {'guifg': s:greys[2]})
+call s:Highlight('EasyMotionTarget',          s:cerise, '', 'bold', '')
+call s:Highlight('EasyMotionShade',           s:greys[2], '', '', '')
 
 "*** CtrlP ***
-call s:HI('CtrlPNoEntries',            {'guifg': s:mordant})
-call s:HI('CtrlPPrtBase',              {'gui': 'bold'})
+call s:Highlight('CtrlPNoEntries',            s:mordant, '', '', '')
+call s:Highlight('CtrlPPrtBase',              '', '', 'bold', '')
