@@ -192,7 +192,7 @@ endif
 
 call s:HighlightX('VisualNOS',      '', s:greys[4], '', '')
 call s:HighlightX('Visual',         '', s:greys[4], '', '')
-call s:Highlight('Search',          s:black, s:gold, '', '')
+call s:Highlight('Search',          s:black, s:frost, '', '')
 call s:Highlight('IncSearch',       s:black, s:sunny, '', '')
 
 call s:Highlight('Pmenu',           s:black, s:gold, '', '')
