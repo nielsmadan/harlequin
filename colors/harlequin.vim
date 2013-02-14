@@ -251,6 +251,7 @@ call s:Highlight('clojureCond',           s:cerise, '', '', '')
 call s:Highlight('clojureParen0',         s:text, '', '', '')
 call s:Highlight('clojureMacro',          s:lime, '', 'bold', '')
 call s:Highlight('clojureDispatch',       s:lilac, '', 'bold', '')
+call s:Highlight('clojureError',          s:black, s:mordant, 'bold', '')
 
 "*** SCALA ***
 call s:Highlight('scalaClassName',        s:gold, '', '', '')
