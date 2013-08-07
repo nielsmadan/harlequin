@@ -19,13 +19,13 @@ Pull requests welcome. Please open issues if you find something that looks wonky
 Currently hand-optimized for the following languages:
 
 ```
-C, python, ruby, javascript, clojure, scala, vimscript, xml, html, and css
+C, C++, python, ruby, javascript, clojure, scala, vimscript, xml, html, and css
 ```
 
 And the following plugins:
 
 ```
-minibufexplorer, vim-easymotion, vimdiff, CtrlP
+minibufexplorer, vim-easymotion, vimdiff, CtrlP, taglist.vim
 ```
 
 ### screenshots ###

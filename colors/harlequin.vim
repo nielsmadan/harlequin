@@ -321,3 +321,7 @@ call s:Highlight('EasyMotionShade',           s:greys[2], '', '', '')
 "*** CtrlP ***
 call s:Highlight('CtrlPNoEntries',            s:mordant, '', '', '')
 call s:Highlight('CtrlPPrtBase',              '', '', 'bold', '')
+
+"*** taglist.vim ***
+call s:Highlight('TagListTitle',              s:white, '', 'bold', '')
+call s:Highlight('TagListFileName',           s:brick, '', '', '')
