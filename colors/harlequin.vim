@@ -325,3 +325,6 @@ call s:Highlight('CtrlPPrtBase',              '', '', 'bold', '')
 "*** taglist.vim ***
 call s:Highlight('TagListTitle',              s:white, '', 'bold', '')
 call s:Highlight('TagListFileName',           s:brick, '', '', '')
+
+"*** YouCompleteMe ***
+call s:Highlight('YcmErrorSection',           s:greys[5], s:mordant, 'bold', '')
