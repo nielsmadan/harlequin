@@ -15,7 +15,7 @@ if !has("gui_running") && &t_Co != 256
     finish
 endif
 
-let colors_name = "harlequin"
+let g:colors_name = "harlequin"
 
 let s:text = ['#F8F8F2', 15]
 let s:text_bg = ['#1C1B1A', 234]
