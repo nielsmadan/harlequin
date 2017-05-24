@@ -157,8 +157,8 @@ call s:Highlight('Number',          s:lilac, '', 'bold', '')
 call s:Highlight('Constant',        s:lilac, '', 'bold', '')
 call s:Highlight('Float',           s:lilac, '', 'bold', '')
 
-call s:Highlight('FoldColumn',      s:greys[1], s:black, '', '')
-call s:Highlight('Folded',          s:greys[1], s:black, '', '')
+call s:Highlight('FoldColumn',      s:white, s:greys[4], '', '')
+call s:Highlight('Folded',          s:white, s:greys[4], '', '')
 
 call s:Highlight('MatchParen',      s:black, s:gold, 'bold', '')
 
