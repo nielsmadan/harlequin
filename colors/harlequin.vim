@@ -199,7 +199,7 @@ call s:Highlight('Pmenu',           s:frost, s:greys[5], '', '')
 call s:Highlight('PmenuSel',        s:gold, s:black, 'bold', '')
 
 call s:HighlightX('DiffDelete',     s:auburn, s:auburn, '', '')
-call s:HighlightX('DiffText',       '', s:greys[3], '', '')
+call s:HighlightX('DiffText',       '', s:auburn, 'bold', '')
 call s:HighlightX('DiffChange',     '', s:greys[4], '', '')
 call s:HighlightX('DiffAdd',        '', s:moss, '', '')
 
