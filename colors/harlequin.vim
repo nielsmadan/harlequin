@@ -41,6 +41,7 @@ let s:sunny = ['#FFFC7F', 228]
 let s:mordant = ['#AE0C00', 124]
 
 let s:auburn = ['#7C0A02', 88]
+let s:deep_blue = ['#0D3A6E', 24]
 let s:moss = ['#004225', 22]
 
 " pass empty string for defaults: guifg - fg, guibg - bg, gui - none, guisp - fg
@@ -199,7 +200,7 @@ call s:Highlight('Pmenu',           s:frost, s:greys[5], '', '')
 call s:Highlight('PmenuSel',        s:gold, s:black, 'bold', '')
 
 call s:HighlightX('DiffDelete',     s:auburn, s:auburn, '', '')
-call s:HighlightX('DiffText',       '', s:auburn, 'bold', '')
+call s:HighlightX('DiffText',       '', s:deep_blue, 'bold', '')
 call s:HighlightX('DiffChange',     '', s:greys[4], '', '')
 call s:HighlightX('DiffAdd',        '', s:moss, '', '')
 
@@ -326,3 +327,13 @@ call s:Highlight('TagListFileName',           s:brick, '', '', '')
 
 "*** YouCompleteMe ***
 call s:Highlight('YcmErrorSection',           s:greys[5], s:mordant, 'bold', '')
+
+"*** coc.nvim ***
+call s:HighlightX('CocHighlightText',  '', s:greys[4], '', '')
+call s:HighlightX('CocHighlightRead',  '', s:moss, '', '')
+call s:HighlightX('CocHighlightWrite', '', s:deep_blue, 'bold', '')
+call s:HighlightX('CocErrorHighlight',   '', '', 'undercurl', s:mordant)
+call s:HighlightX('CocWarningHighlight', '', '', 'undercurl', s:gold)
+call s:HighlightX('CocInfoHighlight',    '', '', 'undercurl', s:frost)
+call s:HighlightX('CocHintHighlight',    '', '', 'undercurl', s:frost)
+call s:HighlightX('CocUnusedHighlight',  '', '', 'undercurl', s:frost)
