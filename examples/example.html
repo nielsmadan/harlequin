@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Project Dashboard</title>
+  <meta name="description" content="A responsive project dashboard">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1c1b1a">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta property="og:title" content="Dashboard">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/dashboard">
+  <meta property="og:image" content="https://example.com/og-image.png">
+</head>
+
+<body>
+  <header class="site-header" role="banner">
+    <nav aria-label="Primary navigation">
+      <a href="/" class="logo">Dashboard</a>
+      <ul class="nav-links">
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/settings" aria-current="page">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content" class="container">
+    <section class="hero">
+      <h1>Welcome back, <span class="username">User</span></h1>
+      <p>You have <strong>3 active projects</strong> and
+         <em>12 pending tasks</em> across your workspace.</p>
+    </section>
+
+    <div class="grid" data-columns="3">
+      <article class="card" id="card-1">
+        <h2>Analytics</h2>
+        <p>Page views: <code>1,247,803</code></p>
+        <a href="/analytics" class="btn btn-primary">View Report &rarr;</a>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Example Inc. All rights reserved.</p>
+  </footer>
+
+  <script src="js/vendor/alpine.min.js" defer></script>
+  <script src="js/main.js" type="module"></script>
+</body>
+</html>

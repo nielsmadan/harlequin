@@ -14,34 +14,26 @@ You can also get it from vim.org [here](http://www.vim.org/scripts/script.php?sc
 
 Pull requests welcome. Please open issues if you find something that looks wonky.
 
-### languages/plugins ###
+### languages ###
 
-Currently hand-optimized for the following languages:
+Hand-optimized for: C, C++, Python, Ruby, JavaScript, TypeScript, Rust, Go, Java, Kotlin, Swift, Clojure, Scala, VimScript, XML, HTML, CSS, SQL, Bash, Markdown, JSON, and YAML.
 
-```
-C, C++, python, ruby, javascript, clojure, scala, vimscript, xml, html, and css
-```
+### plugins ###
 
-And the following plugins:
-
-```
-minibufexplorer, vim-easymotion, vimdiff, CtrlP, taglist.vim
-```
+minibufexplorer, vim-easymotion, vimdiff, CtrlP, taglist.vim, YouCompleteMe.
 
 ### screenshots ###
 
-Python
+TypeScript
 
-![python](http://i.imgur.com/IX2F1.png)
+![typescript](screenshots/typescript.png)
 
-C
+Rust
 
-![c](http://i.imgur.com/ODbCD.png)
+![rust](screenshots/rust.png)
 
-Clojure
+Diff mode
 
-![clojure](http://i.imgur.com/LoUNY.png)
+![diff](screenshots/diff.png)
 
-diffmode
-
-![diffmode](http://i.imgur.com/7GlFM.png)
+See the [full gallery](GALLERY.md) for all supported languages.
