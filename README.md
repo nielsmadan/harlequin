@@ -16,11 +16,11 @@ Pull requests welcome. Please open issues if you find something that looks wonky
 
 ### languages ###
 
-Hand-optimized for: C, C++, Python, Ruby, JavaScript, TypeScript, Rust, Go, Java, Kotlin, Swift, Clojure, Scala, VimScript, XML, HTML, CSS, SQL, Bash, Markdown, JSON, and YAML.
+Hand-optimized for: C, C++, Python, Ruby, JavaScript, TypeScript, Rust, Go, Java, Kotlin, Swift, VimScript, XML, HTML, CSS, SQL, Bash, Markdown, JSON, and YAML.
 
 ### plugins ###
 
-minibufexplorer, vim-easymotion, vimdiff, CtrlP, taglist.vim, YouCompleteMe.
+vim-easymotion, coc.nvim, vimdiff.
 
 ### screenshots ###
 

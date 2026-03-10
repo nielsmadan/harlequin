@@ -305,28 +305,10 @@ call s:Highlight('cssTextAttr',              s:lilac, '', 'bold', '')
 call s:Highlight('cssTableAttr',             s:lilac, '', 'bold', '')
 call s:Highlight('cssColorAttr',             s:lilac, '', 'bold', '')
 
-"*** minibufexpl ***
-call s:Highlight('MBENormal',                 s:greys[1], '', '', '')
-call s:Highlight('MBEVisibleNormal',          s:white, '', 'bold', '')
-call s:Highlight('MBEVisibleActive',          s:frost, '', 'bold', '')
-call s:Highlight('MBEChanged',                s:greys[1], '', 'italic', '')
-call s:Highlight('MBEVisibleChanged',         s:white, '', 'bold,italic', '')
-call s:Highlight('MBEVisibleChangedActive',   s:frost, '', 'bold,italic', '')
-
 "*** vim-easymotion ***
 call s:Highlight('EasyMotionTarget',          s:cerise, '', 'bold', '')
 call s:Highlight('EasyMotionShade',           s:greys[2], '', '', '')
 
-"*** CtrlP ***
-call s:Highlight('CtrlPNoEntries',            s:mordant, '', '', '')
-call s:Highlight('CtrlPPrtBase',              '', '', 'bold', '')
-
-"*** taglist.vim ***
-call s:Highlight('TagListTitle',              s:white, '', 'bold', '')
-call s:Highlight('TagListFileName',           s:brick, '', '', '')
-
-"*** YouCompleteMe ***
-call s:Highlight('YcmErrorSection',           s:greys[5], s:mordant, 'bold', '')
 
 "*** coc.nvim ***
 call s:HighlightX('CocHighlightText',  '', s:greys[4], '', '')
