@@ -74,7 +74,9 @@ function! s:Highlight(group_name, guifg, guibg, gui, guisp)
     endif
 endfunction
 
-" Function without defaults.
+" Function without defaults. Empty guifg/guibg emit explicit NONE so syntax/
+" treesitter fg shows through bg-only overlays — `:hi` is additive, so omitting
+" the clause would leave the default restored by `hi clear` in place.
 function! s:HighlightX(group_name, guifg, guibg, gui, guisp)
     if empty(a:guifg) && empty(a:guibg) && empty(a:gui) && !has("gui_running")
         return
@@ -82,20 +84,12 @@ function! s:HighlightX(group_name, guifg, guibg, gui, guisp)
 
     let hi_str = 'hi ' . a:group_name
 
-    if !empty(a:guifg)
-        if has("gui_running")
-            let hi_str = hi_str . ' guifg=' . a:guifg[0]
-        else
-            let hi_str = hi_str . ' ctermfg=' . a:guifg[1]
-        endif
-    endif
-
-    if !empty(a:guibg)
-        if has("gui_running")
-            let hi_str = hi_str . ' guibg=' . a:guibg[0]
-        else
-            let hi_str = hi_str . ' ctermbg=' . a:guibg[1]
-        endif
+    if has("gui_running")
+        let hi_str = hi_str . ' guifg=' . (empty(a:guifg) ? 'NONE' : a:guifg[0])
+        let hi_str = hi_str . ' guibg=' . (empty(a:guibg) ? 'NONE' : a:guibg[0])
+    else
+        let hi_str = hi_str . ' ctermfg=' . (empty(a:guifg) ? 'NONE' : a:guifg[1])
+        let hi_str = hi_str . ' ctermbg=' . (empty(a:guibg) ? 'NONE' : a:guibg[1])
     endif
 
     if !empty(a:gui)
