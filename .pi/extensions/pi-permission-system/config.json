@@ -1,0 +1,10 @@
+{
+  "permission": {
+    "bash": {
+      "just current-version *": "allow",
+      "just tag-release-minor *": "deny",
+      "just tag-release-major *": "deny"
+    },
+    "mcp": {}
+  }
+}
