@@ -346,7 +346,7 @@ class ReleaseTests(unittest.TestCase):
                 ]
             ),
             json.dumps({"status": "completed", "conclusion": "success"}),
-            "release-url",
+            json.dumps({"url": "release-url", "isDraft": False}),
         ]
         with (
             patch.object(release, "run", side_effect=responses) as runner,
@@ -355,6 +355,43 @@ class ReleaseTests(unittest.TestCase):
             release.publication(self.root, config, "v1.2.1", "revision")
         self.assertIn("Released: release-url", output.getvalue())
         self.assertIn("2", runner.call_args_list[1].args)
+
+    def test_draft_release_is_reported_without_publication(self):
+        config = {"workflow": "release.yml", "repository": "owner/repo", "draft": True}
+        responses = [
+            json.dumps([{"databaseId": 2, "headBranch": "v1.2.1", "url": "workflow-url"}]),
+            json.dumps({"status": "completed", "conclusion": "success"}),
+            json.dumps({"url": "draft-url", "isDraft": True}),
+        ]
+        with (
+            patch.object(release, "run", side_effect=responses) as runner,
+            patch("sys.stdout", new_callable=io.StringIO) as output,
+        ):
+            release.publication(self.root, config, "v1.2.1", "revision")
+        self.assertIn("Draft release ready: draft-url", output.getvalue())
+        self.assertEqual(runner.call_args_list[-1].args[1:4], ("gh", "release", "view"))
+        self.assertEqual(runner.call_count, 3)
+
+    def test_release_state_must_match_the_configured_policy(self):
+        for expected_draft in [True, False]:
+            with self.subTest(expected_draft=expected_draft):
+                config = {
+                    "workflow": "release.yml",
+                    "repository": "owner/repo",
+                    "draft": expected_draft,
+                }
+                responses = [
+                    json.dumps([{"databaseId": 2, "headBranch": "v1.2.1", "url": "workflow-url"}]),
+                    json.dumps({"status": "completed", "conclusion": "success"}),
+                    json.dumps({"url": "release-url", "isDraft": not expected_draft}),
+                ]
+                with (
+                    patch.object(release, "run", side_effect=responses),
+                    self.assertRaisesRegex(
+                        release.ReleaseError, "Expected a .* release: release-url"
+                    ),
+                ):
+                    release.publication(self.root, config, "v1.2.1", "revision")
 
     def test_publication_failure_is_an_error(self):
         config = {"workflow": "release.yml", "repository": "owner/repo"}

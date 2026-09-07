@@ -274,20 +274,25 @@ def publication(root, config, tag, revision):
                 raise ReleaseError(
                     f"Publication finished with {result['conclusion']}: {workflow_run['url']}"
                 )
-            url = run(
-                root,
-                "gh",
-                "release",
-                "view",
-                tag,
-                "--repo",
-                config["repository"],
-                "--json",
-                "url",
-                "--jq",
-                ".url",
+            published = json.loads(
+                run(
+                    root,
+                    "gh",
+                    "release",
+                    "view",
+                    tag,
+                    "--repo",
+                    config["repository"],
+                    "--json",
+                    "url,isDraft",
+                )
             )
-            print("Released: " + url)
+            expected_draft = config.get("draft", False)
+            if published["isDraft"] != expected_draft:
+                expected = "draft" if expected_draft else "published"
+                raise ReleaseError(f"Expected a {expected} release: {published['url']}")
+            label = "Draft release ready: " if expected_draft else "Released: "
+            print(label + published["url"])
             return
         time.sleep(5)
     raise ReleaseError("Publication is still running: " + workflow_run["url"])
