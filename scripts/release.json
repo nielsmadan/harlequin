@@ -1,0 +1,25 @@
+{
+  "branch": "master",
+  "components": 2,
+  "initial_version": "0.1",
+  "checks": [
+    [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "scripts",
+      "-p",
+      "test_release*.py"
+    ]
+  ],
+  "tools": [
+    "git",
+    "python3"
+  ],
+  "stages": [],
+  "name": "Harlequin",
+  "publication": "Version tag for Git consumers; vim.org upload remains manual"
+}
