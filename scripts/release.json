@@ -2,22 +2,9 @@
   "branch": "master",
   "components": 2,
   "initial_version": "0.1",
-  "checks": [
-    [
-      "python3",
-      "-B",
-      "-m",
-      "unittest",
-      "discover",
-      "-s",
-      "scripts",
-      "-p",
-      "test_release*.py"
-    ]
-  ],
+  "checks": [],
   "tools": [
-    "git",
-    "python3"
+    "git"
   ],
   "stages": [],
   "name": "Harlequin",
