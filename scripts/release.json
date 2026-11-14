@@ -2,6 +2,7 @@
   "branch": "master",
   "components": 2,
   "initial_version": "0.1",
+  "sign": true,
   "checks": [],
   "tools": [
     "git"
